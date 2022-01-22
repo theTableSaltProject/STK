@@ -1,0 +1,7 @@
+CMakeLists.txt
+STK.kdev4
+build/
+src/MakeLists.txt
+src/main.cpp
+src/main.qml
+src/resources.qrc
