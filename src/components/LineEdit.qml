@@ -21,7 +21,7 @@ Rectangle {
     radius: borderRadius
 
     border.width: borderWidth
-    border.color: textField.activeFocus ? accentColor : borderColor
+    // border.color: textField.activeFocus ? accentColor : borderColor
 
     color: type == "hollow" ? "transparent" : type == "filled" ? topColor : "#ff00ff"
 
@@ -38,6 +38,32 @@ Rectangle {
 
         background: Rectangle {
             color: "transparent"
+        }
+    }
+
+    states: [
+        State {
+            name: "focused"
+            when: textField.activeFocus
+            PropertyChanges {
+                target: lineEdit
+                border.color: accentColor
+            }
+        },
+        State {
+            name: "unfocused"
+            when: textField.activeFocus == false
+            PropertyChanges {
+                target: lineEdit
+                border.color: borderColor
+            }
+        }
+    ]
+
+    transitions: Transition {
+        PropertyAnimation {
+            property: "border.color"
+            duration: quickAnimationDuration
         }
     }
 }

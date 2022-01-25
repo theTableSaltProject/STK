@@ -23,7 +23,10 @@ Window {
 
     // Border styling
     property int borderRadius: 6
-    property double borderWidth: 1.25
+    property double borderWidth: 2
+
+    // Animation duration
+    property double quickAnimationDuration: 100
 
     visible: true
     color: "transparent"
