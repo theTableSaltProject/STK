@@ -18,8 +18,8 @@ Rectangle {
     // Button mode, "click" or "toggle"
     property string mode: "click"
 
-    radius: 6
-    border.width: 1.25
+    radius: borderRadius
+    border.width: borderWidth
     border.color: (type == "hollow" || type == "filled") && buttonHover ? borderColor : type == "accent" && buttonHover ? accentBorderColor : type == "hollow" || type == "filled" || type == "accent" ? "transparent" : "#ff00ff"
     color: type == "hollow" && buttonPressed ? borderColor : type == "accent" && buttonPressed ? accentBorderColor : type == "filled" && buttonPressed ? borderColor : type == "hollow" ? "transparent" : type == "accent" ? accentColor : type == "filled" ? topColor : "#ff00ff"
 
@@ -28,6 +28,8 @@ Rectangle {
 
     Text {
         id: "buttonText"
+
+        font.pointSize: fontSize
 
         text: "Click me!"
         color: textColor
