@@ -10,10 +10,8 @@ Rectangle {
     property alias maximumLength: textField.maximumLength
     // Placeholder to show when the field is empty
     property alias placeholder: textField.placeholderText
-
     // Get text input by user
     property alias inputText: textField.text
-
     // True if field is focused
     property bool focused: false
 
@@ -21,6 +19,7 @@ Rectangle {
     radius: borderRadius
 
     border.width: borderWidth
+    border.color: borderColor
 
     color: type == "hollow" ? "transparent" : type == "filled" ? topColor : "#ff00ff"
 
