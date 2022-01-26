@@ -18,9 +18,10 @@ Rectangle {
     // Button mode, "click" or "toggle"
     property string mode: "click"
 
+
     radius: borderRadius
     border.width: borderWidth
-    border.color: (type == "hollow" || type == "filled") && buttonHover ? borderColor : type == "accent" && buttonHover ? accentTopColor : type == "outline" && buttonHover ? accentColor : type == "hollow" || type == "filled" || type == "accent" ? "transparent" : type == "outline" ? borderColor : "#ff00ff"
+    border.color: type == "outline" && buttonPressed ? accentColor : (type == "hollow" || type == "filled") && buttonHover ? borderColor : type == "accent" && buttonHover ? accentTopColor : type == "outline" && buttonHover ? accentColor : type == "hollow" || type == "filled" || type == "accent" ? "transparent" : type == "outline" ? borderColor : "#ff00ff"
     color: type == "outline" && buttonPressed ? accentColor : type == "hollow" && buttonPressed ? borderColor : type == "accent" && buttonPressed ? accentTopColor : type == "filled" && buttonPressed ? borderColor : type == "hollow" || type == "outline" ? "transparent" : type == "accent" ? accentColor : type == "filled" ? topColor : "#ff00ff"
 
     implicitWidth: buttonText.implicitWidth + horizontalMargin * 2
@@ -46,11 +47,18 @@ Rectangle {
         anchors.fill: parent
 
         onPressed: {
-            buttonPressed = true
+            if (mode == "click") {
+                buttonPressed = true
+            }
+            if (mode == "toggle") {
+                buttonPressed = !buttonPressed
+            }
         }
 
         onReleased: {
-            buttonPressed = false
+            if (mode == "click") {
+                buttonPressed = false
+            }
         }
 
         onEntered: {
