@@ -21,7 +21,6 @@ Rectangle {
     radius: borderRadius
 
     border.width: borderWidth
-    // border.color: textField.activeFocus ? accentColor : borderColor
 
     color: type == "hollow" ? "transparent" : type == "filled" ? topColor : "#ff00ff"
 
