@@ -9,7 +9,7 @@ Rectangle {
     property int horizontalMargin: 15
     // Vertical margin added to both top and bottom of text
     property int verticalMargin: 5
-    // Visual type of button, "hollow", "filled" or "accent"
+    // Visual type of button, "hollow", "outline", "filled" or "accent"
     property string type: "filled"
     // Boolean for detecting if the button is pressed
     property bool buttonPressed: false
@@ -20,8 +20,8 @@ Rectangle {
 
     radius: borderRadius
     border.width: borderWidth
-    border.color: (type == "hollow" || type == "filled") && buttonHover ? borderColor : type == "accent" && buttonHover ? accentBorderColor : type == "hollow" || type == "filled" || type == "accent" ? "transparent" : "#ff00ff"
-    color: type == "hollow" && buttonPressed ? borderColor : type == "accent" && buttonPressed ? accentBorderColor : type == "filled" && buttonPressed ? borderColor : type == "hollow" ? "transparent" : type == "accent" ? accentColor : type == "filled" ? topColor : "#ff00ff"
+    border.color: (type == "hollow" || type == "filled") && buttonHover ? borderColor : type == "accent" && buttonHover ? accentTopColor : type == "outline" && buttonHover ? accentColor : type == "hollow" || type == "filled" || type == "accent" ? "transparent" : type == "outline" ? borderColor : "#ff00ff"
+    color: type == "outline" && buttonPressed ? accentColor : type == "hollow" && buttonPressed ? borderColor : type == "accent" && buttonPressed ? accentTopColor : type == "filled" && buttonPressed ? borderColor : type == "hollow" || type == "outline" ? "transparent" : type == "accent" ? accentColor : type == "filled" ? topColor : "#ff00ff"
 
     implicitWidth: buttonText.implicitWidth + horizontalMargin * 2
     implicitHeight: buttonText.implicitHeight + verticalMargin * 2

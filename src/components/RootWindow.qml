@@ -11,7 +11,7 @@ Window {
     property color topColor: "#444444"
     property color borderColor: "#676767"
     property color accentColor: "#2a8cc1"
-    property color accentBorderColor: "#6ecff5"
+    property color accentTopColor: "#6ecff5"
     property color transparentColor: "#aa2d2d2d"
 
     // Text styling
