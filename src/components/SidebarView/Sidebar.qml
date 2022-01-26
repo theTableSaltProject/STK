@@ -7,5 +7,7 @@ Rectangle {
     anchors.rightMargin: side == "left" ? parent.width - sidebarWidth : 0
     anchors.leftMargin: side == "right" ? parent.width - sidebarWidth : 0
 
+    clip: true
+
     color: transparentColor
 }
